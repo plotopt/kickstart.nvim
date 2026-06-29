@@ -1,0 +1,57 @@
+{
+    "Print line": {
+        "prefix": "pl",
+        "body": "fmt.Println(\"$0\")",
+        "description": "fmt.Println"
+    },
+    "Printf with newline": {
+        "prefix": "pf",
+        "body": "fmt.Printf(\"${1:%v}\\n\", $0)",
+        "description": "fmt.Printf with trailing \\n"
+    },
+    "Print variable (name=value)": {
+        "prefix": "pv",
+        "body": "fmt.Printf(\"${1:name}=%+v\\n\", ${1})",
+        "description": "Print variable with its name as label"
+    },
+    "Debug marker": {
+        "prefix": "pdbg",
+        "body": "fmt.Println(\">>> ${1:DEBUG} <<<\")$0",
+        "description": "Loud debug marker"
+    },
+    "Print here": {
+        "prefix": "phere",
+        "body": "fmt.Println(\">>> HERE ${1:1} <<<\")$0",
+        "description": "Drop a 'we got here' marker"
+    },
+    "Errorf wrap": {
+        "prefix": "ef",
+        "body": "fmt.Errorf(\"${1:context}: %w\", ${2:err})$0",
+        "description": "Wrap an error with context"
+    },
+    "Print error": {
+        "prefix": "perr",
+        "body": "fmt.Printf(\"err: %v\\n\", ${1:err})$0",
+        "description": "Quick error print"
+    },
+    "Log printf": {
+        "prefix": "lf",
+        "body": "log.Printf(\"${1:%v}\\n\", $0)",
+        "description": "log.Printf with newline"
+    },
+    "Slog info": {
+        "prefix": "sli",
+        "body": "slog.Info(\"${1:msg}\", \"${2:key}\", ${3:val})$0",
+        "description": "slog.Info structured log"
+    },
+    "Slog error": {
+        "prefix": "sle",
+        "body": "slog.Error(\"${1:msg}\", \"err\", ${2:err})$0",
+        "description": "slog.Error structured log"
+    },
+    "Slog debug": {
+        "prefix": "sld",
+        "body": "slog.Debug(\"${1:msg}\", \"${2:key}\", ${3:val})$0",
+        "description": "slog.Debug structured log"
+    }
+}
